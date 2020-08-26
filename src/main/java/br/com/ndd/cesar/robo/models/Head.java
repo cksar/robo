@@ -1,32 +1,52 @@
 package br.com.ndd.cesar.robo.models;
 
+/*
+ * @Author	Cesar Henrique
+*/
 public class Head {
     private HeadInclination headInclination;
-    private HeadInclination headInclinationCurrent;
 
     public Head() {
         this.headInclination = headInclination.REST;
-        this.headInclinationCurrent = headInclinationCurrent.REST;
     }
 
-    public Head(HeadInclination headInclination, HeadInclination headInclinationCurrent) {
+    public Head(HeadInclination headInclination) {
         this.headInclination = headInclination.REST;
-        this.headInclinationCurrent = headInclinationCurrent.REST;
     }
 
     public HeadInclination getHeadInclination() {
         return headInclination;
     }
 
-    public void setHeadInclination(HeadInclination headInclination) {
-        this.headInclination = headInclination;
-    }
-
-    public HeadInclination getHeadInclinationCurrent() {
-        return headInclinationCurrent;
-    }
-
-    public void setHeadInclinationCurrent(HeadInclination headInclinationCurrent) {
-        this.headInclinationCurrent = headInclinationCurrent;
+    public HeadInclination updateHeadInclination(HeadInclination value) {
+        if ((value == HeadInclination.DOWN) || (value == HeadInclination.UP)) {
+            switch (headInclination) {
+                case REST: {
+                    if (value == HeadInclination.DOWN) {
+                        this.headInclination = HeadInclination.DOWN;
+                    } else if (value == HeadInclination.UP) {
+                        this.headInclination = HeadInclination.UP;
+                    }
+                    break;
+                }
+                case UP: {
+                    if (value == HeadInclination.DOWN) {
+                        this.headInclination = HeadInclination.REST;
+                    } else if (value == HeadInclination.UP) {
+                        this.headInclination = HeadInclination.UP;
+                    }
+                    break;
+                }
+                case DOWN: {
+                    if (value == HeadInclination.DOWN) {
+                        this.headInclination = HeadInclination.DOWN;
+                    } else if (value == HeadInclination.UP) {
+                        this.headInclination = HeadInclination.REST;
+                    }
+                    break;
+                }
+            }
+        }
+        return headInclination;
     }
 }
