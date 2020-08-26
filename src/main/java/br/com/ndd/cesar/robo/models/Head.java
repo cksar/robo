@@ -5,12 +5,15 @@ package br.com.ndd.cesar.robo.models;
 */
 public class Head {
     private HeadInclination headInclination;
+    private int rotation;
 
     public Head() {
+        this.rotation = 0;
         this.headInclination = headInclination.REST;
     }
 
-    public Head(HeadInclination headInclination) {
+    public Head(HeadInclination headInclination, int rotation) {
+        this.rotation = 0;
         this.headInclination = headInclination.REST;
     }
 
@@ -48,5 +51,22 @@ public class Head {
             }
         }
         return headInclination;
+    }
+
+    public int updateHeadRotation(int value) {
+        if (getHeadInclination()!=HeadInclination.DOWN) {
+            if ((value == 1)&&(this.rotation<90)) {
+                this.rotation = this.rotation + 45;
+            } else if ((value == -1)&&(rotation>-90)) {
+                this.rotation = rotation - 45;
+            } else if (value == 0){
+                this.rotation = 0;
+            }
+        }
+        return this.rotation;
+    }
+
+    public int getRotation() {
+        return rotation;
     }
 }
