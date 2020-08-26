@@ -54,7 +54,24 @@ public class Arms {
         return elbow;
     }
 
+    public int updateWristRotation(int value) {
+        if (getElbow()==Elbow.STRONGLY_CONTRACTED) {
+            if ((value == 1)&&(this.wristRotation<180)) {
+                this.wristRotation = this.wristRotation + 45;
+            } else if ((value == -1)&&(wristRotation>-90)) {
+                this.wristRotation = wristRotation - 45;
+            } else if (value == 0){
+                this.wristRotation = 0;
+            }
+        }
+        return this.wristRotation;
+    }
+
     public Elbow getElbow() {
         return elbow;
+    }
+
+    public int getWristRotation() {
+        return wristRotation;
     }
 }

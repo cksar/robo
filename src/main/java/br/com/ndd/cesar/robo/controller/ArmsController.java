@@ -27,4 +27,18 @@ public class ArmsController {
     public Elbow elbowInclination(@PathVariable("value") Elbow value) {
         return arms.updateElbow(value);
     }
+
+    /** Informa a rotação atual da cabeça
+     */
+    @RequestMapping(method = RequestMethod.GET, value="/wrist")
+    public int wristRotationCurrent() {
+        return arms.getWristRotation();
+    }
+
+    /** Atualiza a rotação atual da cabeça
+     */
+    @RequestMapping(method = RequestMethod.PUT, value="/wrist/{value}")
+    public int wristRotation(@PathVariable("value") int value) {
+        return arms.updateWristRotation(value);
+    }
 }
