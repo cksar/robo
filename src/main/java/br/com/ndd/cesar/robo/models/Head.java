@@ -53,6 +53,10 @@ public class Head {
         return headInclination;
     }
 
+    public int getRotation() {
+        return rotation;
+    }
+
     public int updateHeadRotation(int value) {
         if (getHeadInclination()!=HeadInclination.DOWN) {
             if ((value == 1)&&(this.rotation<90)) {
@@ -66,7 +70,4 @@ public class Head {
         return this.rotation;
     }
 
-    public int getRotation() {
-        return rotation;
-    }
 }

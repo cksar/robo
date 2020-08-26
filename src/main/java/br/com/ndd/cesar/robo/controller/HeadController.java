@@ -17,7 +17,7 @@ public class HeadController {
     /** Informa a inclinação atual da cabeça
      */
     @RequestMapping(method = RequestMethod.GET, value="/inclination")
-    public HeadInclination headInclinationCurrent() {
+    public HeadInclination HeadInclination() {
         return head.getHeadInclination();
     }
 
@@ -31,7 +31,7 @@ public class HeadController {
     /** Informa a rotação atual da cabeça
      */
     @RequestMapping(method = RequestMethod.GET, value="/rotation")
-    public int headRotationCurrent() {
+    public int headRotation() {
         return head.getRotation();
     }
 

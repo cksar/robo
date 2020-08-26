@@ -1,7 +1,7 @@
 package br.com.ndd.cesar.robo.controller;
 
 import br.com.ndd.cesar.robo.models.Arms;
-import br.com.ndd.cesar.robo.models.Elbow;
+import br.com.ndd.cesar.robo.models.ElbowContraction;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,15 +21,15 @@ public class ArmsController {
     /** Informa a contração atual do cotovelo direito
      */
     @RequestMapping(method = RequestMethod.GET, value="/elbow/left")
-    public Elbow elbowContractionLeft() {
-        return leftArm.getElbow();
+    public ElbowContraction elbowContractionLeft() {
+        return leftArm.getElbowContraction();
     }
 
     /** Atualiza a contração atual do cotovelo direito
      */
     @RequestMapping(method = RequestMethod.PUT, value="/elbow/left/{value}")
-    public Elbow elbowContractionLeft(@PathVariable("value") Elbow value) {
-        return leftArm.updateElbow(value);
+    public ElbowContraction elbowContractionLeft(@PathVariable("value") ElbowContraction value) {
+        return leftArm.updateElbowContraction(value);
     }
 
     /** Informa a rotação atual do pulso direito
@@ -49,15 +49,15 @@ public class ArmsController {
     /** Informa a contração atual do cotovelo esquerdo
      */
     @RequestMapping(method = RequestMethod.GET, value="/elbow/right")
-    public Elbow elbowContractionRight() {
-        return rightArm.getElbow();
+    public ElbowContraction elbowContractionRight() {
+        return rightArm.getElbowContraction();
     }
 
     /** Atualiza a contração atual do cotovelo esquerdo
      */
     @RequestMapping(method = RequestMethod.PUT, value="/elbow/right/{value}")
-    public Elbow elbowContractionRight(@PathVariable("value") Elbow value) {
-        return rightArm.updateElbow(value);
+    public ElbowContraction elbowContractionRight(@PathVariable("value") ElbowContraction value) {
+        return rightArm.updateElbowContraction(value);
     }
 
     /** Informa a rotação atual do pulso esquerdo

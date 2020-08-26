@@ -2,60 +2,64 @@ package br.com.ndd.cesar.robo.models;
 
 public class Arms {
     private int wristRotation;
-    private Elbow elbow;
+    private ElbowContraction elbowContraction;
 
     public Arms() {
         this.wristRotation = 0;
-        this.elbow = Elbow.REST;
+        this.elbowContraction = ElbowContraction.REST;
     }
 
-    public Arms(int wristRotation, Elbow elbow) {
+    public Arms(int wristRotation, ElbowContraction elbowContraction) {
         this.wristRotation = 0;
-        this.elbow = Elbow.REST;
+        this.elbowContraction = ElbowContraction.REST;
     }
 
-    public Elbow updateElbow(Elbow value) {
-        if ((value == Elbow.REST) || (value == Elbow.CONTRACTED)) {
-            switch (elbow) {
+    public ElbowContraction updateElbowContraction(ElbowContraction value) {
+        if ((value == ElbowContraction.REST) || (value == ElbowContraction.CONTRACTED)) {
+            switch (elbowContraction) {
                 case REST: {
-                    if (value == Elbow.REST) {
-                        this.elbow = Elbow.REST;
-                    } else if (value == Elbow.CONTRACTED) {
-                        this.elbow = Elbow.SLIGHTLY_CONTRACTED;
+                    if (value == ElbowContraction.REST) {
+                        this.elbowContraction = ElbowContraction.REST;
+                    } else if (value == ElbowContraction.CONTRACTED) {
+                        this.elbowContraction = ElbowContraction.SLIGHTLY_CONTRACTED;
                     }
                     break;
                 }
                 case SLIGHTLY_CONTRACTED: {
-                    if (value == Elbow.REST) {
-                        this.elbow = Elbow.REST;
-                    } else if (value == Elbow.CONTRACTED) {
-                        this.elbow = Elbow.CONTRACTED;
+                    if (value == ElbowContraction.REST) {
+                        this.elbowContraction = ElbowContraction.REST;
+                    } else if (value == ElbowContraction.CONTRACTED) {
+                        this.elbowContraction = ElbowContraction.CONTRACTED;
                     }
                     break;
                 }
                 case CONTRACTED: {
-                    if (value == Elbow.REST) {
-                        this.elbow = Elbow.SLIGHTLY_CONTRACTED;
-                    } else if (value == Elbow.CONTRACTED) {
-                        this.elbow = Elbow.STRONGLY_CONTRACTED;
+                    if (value == ElbowContraction.REST) {
+                        this.elbowContraction = ElbowContraction.SLIGHTLY_CONTRACTED;
+                    } else if (value == ElbowContraction.CONTRACTED) {
+                        this.elbowContraction = ElbowContraction.STRONGLY_CONTRACTED;
                     }
                     break;
                 }
                 case STRONGLY_CONTRACTED: {
-                    if (value == Elbow.REST) {
-                        this.elbow = Elbow.CONTRACTED;
-                    } else if (value == Elbow.CONTRACTED) {
-                        this.elbow = Elbow.STRONGLY_CONTRACTED;
+                    if (value == ElbowContraction.REST) {
+                        this.elbowContraction = ElbowContraction.CONTRACTED;
+                    } else if (value == ElbowContraction.CONTRACTED) {
+                        this.elbowContraction = ElbowContraction.STRONGLY_CONTRACTED;
                     }
                     break;
                 }
             }
         }
-        return elbow;
+        return elbowContraction;
+    }
+
+    public ElbowContraction getElbowContraction() {
+        return elbowContraction;
     }
 
     public int updateWristRotation(int value) {
-        if (getElbow()==Elbow.STRONGLY_CONTRACTED) {
+        if (getElbowContraction()== ElbowContraction.STRONGLY_CONTRACTED) {
             if ((value == 1)&&(this.wristRotation<180)) {
                 this.wristRotation = this.wristRotation + 45;
             } else if ((value == -1)&&(wristRotation>-90)) {
@@ -65,10 +69,6 @@ public class Arms {
             }
         }
         return this.wristRotation;
-    }
-
-    public Elbow getElbow() {
-        return elbow;
     }
 
     public int getWristRotation() {
