@@ -2,7 +2,6 @@ package br.com.ndd.cesar.robo.controller;
 
 import br.com.ndd.cesar.robo.models.Arms;
 import br.com.ndd.cesar.robo.models.Elbow;
-import br.com.ndd.cesar.robo.models.HeadInclination;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,29 +15,62 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(value="/api/arms") //URI padrão para a API
 public class ArmsController {
-    private Arms arms = new Arms();
+    private Arms leftArm = new Arms();
+    private Arms rightArm = new Arms();
 
-    @RequestMapping(method = RequestMethod.GET, value="/elbow")
-    public Elbow elbowInclinationCurrent() {
-        return arms.getElbow();
-    }
-
-    @RequestMapping(method = RequestMethod.PUT, value="/elbow/{value}")
-    public Elbow elbowInclination(@PathVariable("value") Elbow value) {
-        return arms.updateElbow(value);
-    }
-
-    /** Informa a rotação atual da cabeça
+    /** Informa a contração atual do cotovelo direito
      */
-    @RequestMapping(method = RequestMethod.GET, value="/wrist")
-    public int wristRotationCurrent() {
-        return arms.getWristRotation();
+    @RequestMapping(method = RequestMethod.GET, value="/elbow/left")
+    public Elbow elbowContractionLeft() {
+        return leftArm.getElbow();
     }
 
-    /** Atualiza a rotação atual da cabeça
+    /** Atualiza a contração atual do cotovelo direito
      */
-    @RequestMapping(method = RequestMethod.PUT, value="/wrist/{value}")
-    public int wristRotation(@PathVariable("value") int value) {
-        return arms.updateWristRotation(value);
+    @RequestMapping(method = RequestMethod.PUT, value="/elbow/left/{value}")
+    public Elbow elbowContractionLeft(@PathVariable("value") Elbow value) {
+        return leftArm.updateElbow(value);
+    }
+
+    /** Informa a rotação atual do pulso direito
+     */
+    @RequestMapping(method = RequestMethod.GET, value="/wrist/left")
+    public int wristRotationLeft() {
+        return leftArm.getWristRotation();
+    }
+
+    /** Atualiza a rotação atual do pulso direito
+     */
+    @RequestMapping(method = RequestMethod.PUT, value="/wrist/left/{value}")
+    public int wristRotationLeft(@PathVariable("value") int value) {
+        return leftArm.updateWristRotation(value);
+    }
+
+    /** Informa a contração atual do cotovelo esquerdo
+     */
+    @RequestMapping(method = RequestMethod.GET, value="/elbow/right")
+    public Elbow elbowContractionRight() {
+        return rightArm.getElbow();
+    }
+
+    /** Atualiza a contração atual do cotovelo esquerdo
+     */
+    @RequestMapping(method = RequestMethod.PUT, value="/elbow/right/{value}")
+    public Elbow elbowContractionRight(@PathVariable("value") Elbow value) {
+        return rightArm.updateElbow(value);
+    }
+
+    /** Informa a rotação atual do pulso esquerdo
+     */
+    @RequestMapping(method = RequestMethod.GET, value="/wrist/right")
+    public int wristRotationRight() {
+        return rightArm.getWristRotation();
+    }
+
+    /** Atualiza a rotação atual do pulso esquerdo
+     */
+    @RequestMapping(method = RequestMethod.PUT, value="/wrist/right/{value}")
+    public int wristRotationRight(@PathVariable("value") int value) {
+        return rightArm.updateWristRotation(value);
     }
 }
