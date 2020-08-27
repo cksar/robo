@@ -12,17 +12,17 @@ import org.springframework.test.context.web.WebAppConfiguration;
 @WebAppConfiguration
 public class ArmsTest {
 
-    private Arms arms = new Arms();
+    private Arms armsTest = new Arms();
 
     @Test
     public void updateElbowContractionTest() {
-        ElbowContraction elbowContraction = arms.updateElbowContraction(ElbowContraction.CONTRACTED);
+        ElbowContraction elbowContraction = armsTest.updateElbowContraction(ElbowContraction.CONTRACTED);
         Assert.assertEquals(ElbowContraction.SLIGHTLY_CONTRACTED, elbowContraction);
     }
 
     @Test
     public void updateWristRotationTest() {
-        int wristRotation = arms.updateWristRotation(-1);
+        int wristRotation = armsTest.updateWristRotation(-1);
         Assert.assertEquals(0, wristRotation);
     }
 }
