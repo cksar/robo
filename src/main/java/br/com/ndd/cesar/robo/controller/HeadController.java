@@ -1,7 +1,7 @@
 package br.com.ndd.cesar.robo.controller;
 
 import br.com.ndd.cesar.robo.models.Head;
-import br.com.ndd.cesar.robo.models.HeadInclination;
+import br.com.ndd.cesar.robo.util.HeadInclination;
 import org.springframework.web.bind.annotation.*;
 
 /** Classe que vai receber as requisições http

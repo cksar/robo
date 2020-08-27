@@ -1,4 +1,4 @@
-package br.com.ndd.cesar.robo.models;
+package br.com.ndd.cesar.robo.util;
 
 public enum ElbowContraction {
     REST,

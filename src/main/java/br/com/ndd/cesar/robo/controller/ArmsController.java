@@ -1,7 +1,7 @@
 package br.com.ndd.cesar.robo.controller;
 
 import br.com.ndd.cesar.robo.models.Arms;
-import br.com.ndd.cesar.robo.models.ElbowContraction;
+import br.com.ndd.cesar.robo.util.ElbowContraction;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

@@ -1,5 +1,7 @@
 package br.com.ndd.cesar.robo.models;
 
+import br.com.ndd.cesar.robo.util.ElbowContraction;
+
 public class Arms {
     private int wristRotation;
     private ElbowContraction elbowContraction;

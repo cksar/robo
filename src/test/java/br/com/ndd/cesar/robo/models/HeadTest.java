@@ -1,5 +1,6 @@
 package br.com.ndd.cesar.robo.models;
 
+import br.com.ndd.cesar.robo.util.HeadInclination;
 import junit.framework.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
