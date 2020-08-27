@@ -1,7 +1,6 @@
 package br.com.ndd.cesar.robo.controller;
 
-import br.com.ndd.cesar.robo.models.ElbowContraction;
-import br.com.ndd.cesar.robo.models.HeadInclination;
+import br.com.ndd.cesar.robo.util.ElbowContraction;
 import junit.framework.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;

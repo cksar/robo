@@ -1,5 +1,7 @@
 package br.com.ndd.cesar.robo.models;
 
+import br.com.ndd.cesar.robo.util.HeadInclination;
+
 /*
  * @Author	Cesar Henrique
 */
