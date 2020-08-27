@@ -3,8 +3,6 @@ package br.com.ndd.cesar.robo.controller;
 import br.com.ndd.cesar.robo.models.Head;
 import br.com.ndd.cesar.robo.util.HeadInclination;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
 import org.springframework.web.bind.annotation.*;
 
 /** Classe que vai receber as requisições http
@@ -12,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
  * @Author	Cesar Henrique
  */
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping(value="/api/head") //URI padrão para a API
 public class HeadController {

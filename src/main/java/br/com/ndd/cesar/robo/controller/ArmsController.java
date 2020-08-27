@@ -3,18 +3,14 @@ package br.com.ndd.cesar.robo.controller;
 import br.com.ndd.cesar.robo.models.Arms;
 import br.com.ndd.cesar.robo.util.ElbowContraction;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /** Classe que vai receber as requisições http
  *
  * @Author	Cesar Henrique
  */
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping(value="/api/arms") //URI padrão para a API
 public class ArmsController {
