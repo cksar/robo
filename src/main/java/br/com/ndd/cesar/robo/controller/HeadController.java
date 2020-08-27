@@ -2,6 +2,9 @@ package br.com.ndd.cesar.robo.controller;
 
 import br.com.ndd.cesar.robo.models.Head;
 import br.com.ndd.cesar.robo.util.HeadInclination;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import org.springframework.web.bind.annotation.*;
 
 /** Classe que vai receber as requisições http
@@ -14,30 +17,26 @@ import org.springframework.web.bind.annotation.*;
 public class HeadController {
     private Head head = new Head();
 
-    /** Informa a inclinação atual da cabeça
-     */
-    @RequestMapping(method = RequestMethod.GET, value="/inclination")
+    @ApiOperation(value = "Informa a inclinação atual da cabeça")
+    @RequestMapping(method = RequestMethod.GET, value="/inclination", produces="application/json")
     public HeadInclination HeadInclination() {
         return head.getHeadInclination();
     }
 
-    /** Atualiza a inclinação atual da cabeça
-     */
-    @RequestMapping(method = RequestMethod.PUT, value="/inclination/{value}")
+    @ApiOperation(value = "Atualiza a inclinação atual da cabeça")
+    @RequestMapping(method = RequestMethod.PUT, value="/inclination/{value}", produces="application/json")
     public HeadInclination HeadInclination(@PathVariable("value") HeadInclination value) {
             return head.updateHeadInclination(value);
     }
 
-    /** Informa a rotação atual da cabeça
-     */
-    @RequestMapping(method = RequestMethod.GET, value="/rotation")
+    @ApiOperation(value = "Informa a rotação atual da cabeça")
+    @RequestMapping(method = RequestMethod.GET, value="/rotation", produces="application/json")
     public int headRotation() {
         return head.getRotation();
     }
 
-    /** Atualiza a rotação atual da cabeça
-     */
-    @RequestMapping(method = RequestMethod.PUT, value="/rotation/{value}")
+    @ApiOperation(value = "Atualiza a rotação atual da cabeça")
+    @RequestMapping(method = RequestMethod.PUT, value="/rotation/{value}", produces="application/json")
     public int headRotation(@PathVariable("value") int value) {
         return head.updateHeadRotation(value);
     }
